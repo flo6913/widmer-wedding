@@ -351,6 +351,13 @@ h3 {
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+
+  .cards--single {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* ---------- Timeline ---------- */

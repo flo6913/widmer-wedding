@@ -1,5 +1,5 @@
 /* Config - modifiez ces valeurs */
-const WEDDING_DATE = "2027-06-12T14:30:00";
+const WEDDING_DATE = "2026-09-26T14:30:00";
 
 const LINKS = {
   cagnotte: "#",
