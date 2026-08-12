@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prénom &amp; Prénom — Mariage</title>
+  <meta name="description" content="Informations pour nos invités : cérémonie, réception, déroulé de la journée et accès.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-brand">P &amp; P</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu">
+        <a href="#ceremony">Cérémonie</a>
+        <a href="#reception">Réception</a>
+        <a href="#schedule">Déroulé</a>
+        <a href="#directions">Accès</a>
+        <a href="#info">Infos</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-monogram">Prénom &amp; Prénom</div>
+    <div class="hero-divider"><span>&#10022;</span></div>
+    <p class="hero-date">Se marient le 12 juin 2027</p>
+
+    <div class="countdown" id="countdown" aria-label="Compte à rebours avant le mariage">
+      <div class="countdown-item"><div class="num" id="cd-days">0</div><div class="label">Jours</div></div>
+      <div class="countdown-item"><div class="num" id="cd-hours">0</div><div class="label">Heures</div></div>
+      <div class="countdown-item"><div class="num" id="cd-minutes">0</div><div class="label">Minutes</div></div>
+      <div class="countdown-item"><div class="num" id="cd-seconds">0</div><div class="label">Secondes</div></div>
+    </div>
+
+    <a class="hero-cta" data-link="info">Page invités</a>
+  </header>
+
+  <main>
+
+    <section class="section" id="ceremony">
+      <h2 class="section-title">Cérémonie religieuse</h2>
+      <p class="section-subtitle">Église</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">&#9881;</div>
+          <h3>Église Saint-Nom</h3>
+          <span class="card-time">14h30</span>
+          <p>12 Rue de l'Église<br>75000 Paris</p>
+          <a class="card-link" data-link="directions">Voir l'itinéraire</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#9825;</div>
+          <h3>Vidéoprojection</h3>
+          <span class="card-time">Pendant la messe</span>
+          <p>Un texte de l'office vous sera remis à l'entrée de l'église.</p>
+          <a class="card-link" data-link="booklet">Consulter le livret</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="reception">
+      <h2 class="section-title">Réception</h2>
+      <p class="section-subtitle">Vin d'honneur &amp; soirée</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">&#127869;</div>
+          <h3>Domaine du Château</h3>
+          <span class="card-time">17h30</span>
+          <p>1 Allée des Marronniers<br>75000 Paris</p>
+          <a class="card-link" data-link="directions">Voir l'itinéraire</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#127881;</div>
+          <h3>Soirée dansante</h3>
+          <span class="card-time">21h00</span>
+          <p>Au même endroit, la soirée se poursuit jusque tard dans la nuit.</p>
+          <a class="card-link" data-link="photos">Partager vos photos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <h2 class="section-title">Déroulé de la journée</h2>
+      <p class="section-subtitle">Programme</p>
+      <ul class="timeline">
+        <li><span class="time">14h30</span><div class="desc">Cérémonie religieuse à l'église</div></li>
+        <li><span class="time">16h00</span><div class="desc">Photos de groupe devant l'église</div></li>
+        <li><span class="time">17h30</span><div class="desc">Vin d'honneur au domaine</div></li>
+        <li><span class="time">20h00</span><div class="desc">Dîner servi sous les arbres</div></li>
+        <li><span class="time">21h00</span><div class="desc">Ouverture du bal</div></li>
+      </ul>
+    </section>
+
+    <section class="section section-alt" id="directions">
+      <h2 class="section-title">Accès</h2>
+      <p class="section-subtitle">Comment venir</p>
+      <iframe
+        class="map-frame"
+        src="https://www.google.com/maps?q=Paris&z=13&output=embed"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Carte de localisation"
+      ></iframe>
+      <p class="map-address">Réception : Domaine du Château, 1 Allée des Marronniers, Paris</p>
+    </section>
+
+    <section class="section" id="info">
+      <h2 class="section-title">Informations pratiques</h2>
+      <p class="section-subtitle">Bon à savoir</p>
+      <div class="info-list">
+        <div class="info-item">
+          <div class="info-icon">&#127891;</div>
+          <div>
+            <h4>Tenue</h4>
+            <p>Tenue de ville élégante. La réception se déroule en extérieur.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">&#128663;</div>
+          <div>
+            <h4>Parking</h4>
+            <p>Un parking gratuit est disponible au domaine.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">&#127968;</div>
+          <div>
+            <h4>Hébergement</h4>
+            <p>Une liste de gîtes et hôtels est disponible sur demande.</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">&#128241;</div>
+          <div>
+            <h4>Photos</h4>
+            <p>Partagez vos plus belles photos dans l'album commun.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-monogram">Prénom &amp; Prénom</div>
+    <p>12 juin 2027 — Merci d'être des nôtres</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
