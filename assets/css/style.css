@@ -565,6 +565,14 @@ h3 {
   font-size: 1.2rem;
 }
 
+.guest-widget {
+  margin-bottom: 2.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
 .guest-footer {
   text-align: center;
   margin-top: 2.5rem;
