@@ -465,6 +465,13 @@ h3 {
   font-size: 0.9rem;
 }
 
+.info-item .card-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 @media (min-width: 768px) {
   .info-list {
     grid-template-columns: 1fr 1fr;
@@ -577,4 +584,171 @@ h3 {
   text-align: center;
   margin-top: 2.5rem;
   font-size: 0.85rem;
+}
+
+/* ---------- Hébergement page ---------- */
+.page-hero {
+  padding: 9rem 1.25rem 4rem;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, rgba(189, 170, 111, 0.18), transparent 60%),
+    var(--cream);
+}
+
+.page-hero .page-hero-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.page-hero .kicker {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 600;
+  color: var(--sage-dark);
+  line-height: 1.15;
+}
+
+.page-hero p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.map-frame--image {
+  height: auto;
+  overflow: hidden;
+}
+
+.map-frame--image img {
+  width: 100%;
+  height: auto;
+}
+
+.map-caption {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--sage-dark);
+}
+
+.note {
+  max-width: 640px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+  border-radius: 2px;
+  box-shadow: var(--shadow);
+  font-size: 0.95rem;
+}
+
+.note strong {
+  color: var(--sage-dark);
+}
+
+.lodge-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.lodge {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0 1.25rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.lodge:first-of-type {
+  border-top: 1px solid var(--cream-dark);
+}
+
+.lodge-num {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.lodge-num .type {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sage-dark);
+  margin-top: 0.45rem;
+}
+
+.lodge h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.15rem;
+}
+
+.lodge-capacity {
+  font-size: 0.85rem;
+  color: var(--sage);
+  font-style: italic;
+  margin-bottom: 0.7rem;
+}
+
+.guest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.guest-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.guest-row .slot {
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--sage-dark);
+  background: var(--cream-dark);
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.guest-row .names {
+  color: var(--ink);
+}
+
+.empty-slot {
+  font-size: 0.9rem;
+  color: var(--sage);
+  font-style: italic;
+}
+
+@media (max-width: 560px) {
+  .lodge {
+    grid-template-columns: 1fr;
+  }
+
+  .lodge-num {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .lodge-num .type {
+    margin-top: 0;
+  }
 }
