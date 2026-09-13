@@ -814,6 +814,7 @@ h3 {
 .seg-body {
   display: flex;
   align-items: stretch;
+  flex-direction: row-reverse;
 }
 
 .col {
@@ -825,11 +826,11 @@ h3 {
 }
 
 .col.top {
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .col.bot {
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
 .seat {
@@ -840,11 +841,11 @@ h3 {
 }
 
 .col.top .seat {
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .col.bot .seat {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .seat .label {
