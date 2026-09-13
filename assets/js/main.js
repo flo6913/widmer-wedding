@@ -2,9 +2,8 @@
 const WEDDING_DATE = "2026-09-26T14:30:00";
 
 const LINKS = {
-  cagnotte: "#",
-  photos: "#",
-  booklet: "assets/pdf/church-booklet.pdf",
+  cagnotte: "https://www.onparticipe.fr/c/WkDhTcgR",
+  photos: "guest.html",
   directions: "index.html#directions",
   info: "index.html",
   hebergement: "accommodations.html",
@@ -64,6 +63,15 @@ if (toggle) {
     });
   });
 }
+
+document.querySelectorAll(".nav-item--dropdown").forEach(function (item) {
+  const dropdownToggle = item.querySelector(".nav-dropdown-toggle");
+  if (!dropdownToggle) return;
+  dropdownToggle.addEventListener("click", function () {
+    const isOpen = item.classList.toggle("open");
+    dropdownToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+});
 
 const countdown = document.getElementById("countdown");
 if (countdown) {

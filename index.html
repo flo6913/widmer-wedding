@@ -19,13 +19,23 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-menu">
-        <a href="#ceremony">Cérémonie</a>
-        <a href="#reception">Réception</a>
-        <a href="#schedule">Déroulé</a>
-        <a href="#directions">Accès</a>
-        <a href="#info">Infos</a>
-        <a href="accommodations.html">Nuit</a>
+        <div class="nav-item nav-item--dropdown">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Infos
+            <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <div class="nav-submenu">
+            <a href="#ceremony">Cérémonie religieuse</a>
+            <a href="#reception">Réception</a>
+            <a href="#schedule">Déroulé</a>
+            <a href="#directions">Accès</a>
+            <a href="#info">Infos Pratiques</a>
+          </div>
+        </div>
+        <a href="guest.html">Photos</a>
         <a href="table_plan.html">Table</a>
+        <a href="accommodations.html">Nuit</a>
+        <a href="https://www.onparticipe.fr/c/WkDhTcgR" target="_blank" rel="noopener">Cagnotte</a>
       </div>
     </div>
   </nav>
@@ -56,13 +66,6 @@
           <span class="card-time">14h30</span>
           <p>Rue Marius Bondil<br>83140 Six-Fours-les-Plages</p>
           <a class="card-link" data-link="directions">Voir l'itinéraire</a>
-        </div>
-        <div class="card">
-          <div class="card-icon" data-icon="book-open"></div>
-          <h3>Livret de cérémonie</h3>
-          <span class="card-time">À lire pendant l'office</span>
-          <p>Suivez le déroulé de la cérémonie dans le livret.</p>
-          <a class="card-link" data-link="booklet">Consulter le livret</a>
         </div>
       </div>
     </section>
@@ -114,7 +117,7 @@
           <div class="info-icon" data-icon="shirt"></div>
           <div>
             <h4>Tenue</h4>
-            <p>Tenue de ville élégante. La réception se déroule en extérieur.</p>
+            <p>Tenue de ville élégante. La réception se déroule en extérieur. Prévoir une petite laine.</p>
           </div>
         </div>
         <div class="info-item">
@@ -137,6 +140,7 @@
           <div>
             <h4>Photos</h4>
             <p>Partagez vos plus belles photos dans l'album commun.</p>
+            <a class="card-link" data-link="photos">Voir l'album</a>
           </div>
         </div>
       </div>

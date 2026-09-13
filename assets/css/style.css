@@ -196,6 +196,55 @@ h3 {
   text-decoration: none;
 }
 
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.75rem 0;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--cream-dark);
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle:hover {
+  color: var(--sage-dark);
+}
+
+.nav-caret {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.3s ease;
+}
+
+.nav-item.open .nav-caret {
+  transform: rotate(180deg);
+}
+
+.nav-submenu {
+  display: none;
+  flex-direction: column;
+}
+
+.nav-item.open .nav-submenu {
+  display: flex;
+}
+
+.nav-submenu a {
+  padding: 0.6rem 0 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--cream-dark);
+}
+
 @media (min-width: 768px) {
   .nav-toggle {
     display: none;
@@ -215,6 +264,50 @@ h3 {
     padding: 0;
     border: none;
     font-size: 0.95rem;
+  }
+
+  .nav-item--dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-toggle {
+    width: auto;
+    padding: 0;
+    border: none;
+    font-size: 0.95rem;
+  }
+
+  .nav-submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 240px;
+    padding: 0.25rem 0.5rem 0.5rem;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 30px rgba(59, 66, 53, 0.1);
+  }
+
+  .nav-item--dropdown:hover .nav-submenu,
+  .nav-item--dropdown.open .nav-submenu,
+  .nav-item--dropdown:focus-within .nav-submenu {
+    display: flex;
+  }
+
+  .nav-submenu a {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .nav-submenu a:hover {
+    background: var(--cream);
+    color: var(--sage-dark);
   }
 }
 
