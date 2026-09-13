@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Plan de table — disposition exacte</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#232420;
+    --pine:#2F4B3C;
+    --pine-deep:#203830;
+    --champagne:#F6EFE2;
+    --plum:#8B5D6B;
+    --gold:#B8935A;
+    --line:#D8CDB6;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:#EDE7D8;
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+  }
+
+  .page{
+    width:297mm;
+    height:210mm;
+    margin:10mm auto;
+    background:var(--champagne);
+    padding:12mm 16mm;
+    position:relative;
+    box-shadow:0 4px 24px rgba(0,0,0,0.15);
+    page-break-after:always;
+    display:flex;
+    flex-direction:column;
+  }
+
+  header{
+    text-align:center;
+    margin-bottom:6mm;
+  }
+
+  .kicker{
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:var(--plum);
+    margin:0 0 2mm 0;
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:28px;
+    margin:0;
+    color:var(--pine-deep);
+  }
+
+  h1 span{ font-style:italic; font-weight:400; }
+
+  .sub{
+    margin-top:2mm;
+    font-size:12px;
+    color:#6b6a5f;
+  }
+
+  .edit-hint{
+    text-align:center;
+    font-size:11px;
+    color:#8a8a7c;
+    margin-bottom:5mm;
+  }
+
+  /* ---- the banquet diagram ---- */
+  .banquet-wrap{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .banquet{
+    display:flex;
+    width:100%;
+  }
+
+  .segment{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+
+  .row{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:flex-end;
+    height:50mm;
+  }
+  .row.bottom{ align-items:flex-start; }
+
+  .seat{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:12mm;
+  }
+
+  .seat .label{
+    writing-mode:vertical-rl;
+    font-size:11.5px;
+    font-weight:500;
+    line-height:1.1;
+    white-space:nowrap;
+    max-height:40mm;
+  }
+
+  .row .stem{
+    width:1.4px;
+    height:3.5mm;
+    background:var(--gold);
+  }
+
+  .row.top .label{ order:1; }
+  .row.top .stem{ order:2; }
+  .row.top .dot{ order:3; }
+
+  .row.bottom .dot{ order:1; }
+  .row.bottom .stem{ order:2; }
+  .row.bottom .label{ order:3; }
+
+  .dot{
+    width:7.5mm;
+    height:7.5mm;
+    border-radius:50%;
+    background:var(--pine);
+    color:#fff;
+    font-size:11.5px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .surface{
+    height:9mm;
+    background:var(--pine);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+
+  .segment:first-child .surface{ border-radius:10px 0 0 10px; }
+  .segment:last-child .surface{ border-radius:0 10px 10px 0; }
+  .banquet .segment:only-child .surface{ border-radius:10px; }
+
+  .segment:not(:last-child) .surface::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:-1mm;
+    bottom:-1mm;
+    width:1px;
+    background:repeating-linear-gradient(to bottom, var(--gold) 0 3px, transparent 3px 6px);
+  }
+
+  .table-tag{
+    font-family:'Fraunces', serif;
+    font-size:12px;
+    color:#fff;
+    opacity:0.9;
+  }
+
+  footer{
+    margin-top:4mm;
+    text-align:center;
+    font-size:9.5px;
+    color:#9a9a8c;
+  }
+
+  .legend{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    font-size:9.5px;
+    color:#6b6a5f;
+    margin-top:3mm;
+  }
+  .legend .dot{ width:8px; height:8px; font-size:0; margin-right:4px; display:inline-flex; }
+
+  @media print{
+    body{ background:#fff; }
+    .page{ box-shadow:none; margin:0; width:100%; height:100vh; }
+    .edit-hint, .no-print{ display:none !important; }
+    @page{ size:A4 landscape; margin:8mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 — GRANDE TABLE I ================= -->
+<div class="page">
+  <header>
+    <p class="kicker">Claire &amp; Florent</p>
+    <h1>Table <span>I</span></h1>
+  </header>
+
+  <div class="banquet-wrap">
+    <div class="banquet">
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Maguy</span><span class="stem"></span><span class="dot">1</span></div>
+          <div class="seat"><span class="label">Nicole</span><span class="stem"></span><span class="dot">2</span></div>
+          <div class="seat"><span class="label">Hossine</span><span class="stem"></span><span class="dot">3</span></div>
+          <div class="seat"><span class="label">Patrick</span><span class="stem"></span><span class="dot">4</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 1</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">5</span><span class="stem"></span><span class="label">Rosie</span></div>
+          <div class="seat"><span class="dot">6</span><span class="stem"></span><span class="label">Philippe</span></div>
+          <div class="seat"><span class="dot">7</span><span class="stem"></span><span class="label">Fortune</span></div>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Charles</span><span class="stem"></span><span class="dot">8</span></div>
+          <div class="seat"><span class="label">Marine</span><span class="stem"></span><span class="dot">9</span></div>
+          <div class="seat"><span class="label">Arthur P.</span><span class="stem"></span><span class="dot">10</span></div>
+          <div class="seat"><span class="label">Priscilla</span><span class="stem"></span><span class="dot">11</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 2</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">12</span><span class="stem"></span><span class="label">Agnès</span></div>
+          <div class="seat"><span class="dot">13</span><span class="stem"></span><span class="label">Aurore</span></div>
+          <div class="seat"><span class="dot">14</span><span class="stem"></span><span class="label">Alexandre</span></div>
+          <div class="seat"><span class="dot">15</span><span class="stem"></span><span class="label">Arthur L.</span></div>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Claire T.</span><span class="stem"></span><span class="dot">16</span></div>
+          <div class="seat"><span class="label">Thibault</span><span class="stem"></span><span class="dot">17</span></div>
+          <div class="seat"><span class="label">Charlotte</span><span class="stem"></span><span class="dot">18</span></div>
+          <div class="seat"><span class="label">Manon G.</span><span class="stem"></span><span class="dot">19</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 3</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">20</span><span class="stem"></span><span class="label">Laure</span></div>
+          <div class="seat"><span class="dot">21</span><span class="stem"></span><span class="label">Mickaël</span></div>
+          <div class="seat"><span class="dot">22</span><span class="stem"></span><span class="label">Axel</span></div>
+          <div class="seat"><span class="dot">23</span><span class="stem"></span><span class="label">Robin</span></div>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Pierre</span><span class="stem"></span><span class="dot">24</span></div>
+          <div class="seat"><span class="label">Sonia</span><span class="stem"></span><span class="dot">25</span></div>
+          <div class="seat"><span class="label">Vincent</span><span class="stem"></span><span class="dot">26</span></div>
+          <div class="seat"><span class="label">Maxime</span><span class="stem"></span><span class="dot">27</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 4</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">28</span><span class="stem"></span><span class="label">Jérémy</span></div>
+          <div class="seat"><span class="dot">29</span><span class="stem"></span><span class="label">Juliette</span></div>
+          <div class="seat"><span class="dot">30</span><span class="stem"></span><span class="label">Célia</span></div>
+          <div class="seat"><span class="dot">31</span><span class="stem"></span><span class="label">Aurélie</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>Grande table I — 31 convives</footer>
+</div>
+
+<!-- ================= PAGE 2 — GRANDE TABLE II ================= -->
+<div class="page">
+  <header>
+    <p class="kicker">Claire &amp; Florent</p>
+    <h1>Table <span>II</span></h1>
+  </header>
+
+  <div class="banquet-wrap">
+    <div class="banquet">
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Julien</span><span class="stem"></span><span class="dot">1</span></div>
+          <div class="seat"><span class="label">Paul</span><span class="stem"></span><span class="dot">2</span></div>
+          <div class="seat"><span class="label">Clotilde</span><span class="stem"></span><span class="dot">3</span></div>
+          <div class="seat"><span class="label">Laetitia</span><span class="stem"></span><span class="dot">4</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 1</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">5</span><span class="stem"></span><span class="label">Aimée</span></div>
+          <div class="seat"><span class="dot">6</span><span class="stem"></span><span class="label">Amandine</span></div>
+          <div class="seat"><span class="dot">7</span><span class="stem"></span><span class="label">Arnaud</span></div>
+          <div class="seat"><span class="dot">8</span><span class="stem"></span><span class="label">Marine</span></div>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Nicolas L.</span><span class="stem"></span><span class="dot">9</span></div>
+          <div class="seat"><span class="label">Xavier</span><span class="stem"></span><span class="dot">10</span></div>
+          <div class="seat"><span class="label">Emilie</span><span class="stem"></span><span class="dot">11</span></div>
+          <div class="seat"><span class="label">Barthélémy</span><span class="stem"></span><span class="dot">12</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 2</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">13</span><span class="stem"></span><span class="label">Mathilde</span></div>
+          <div class="seat"><span class="dot">14</span><span class="stem"></span><span class="label">Olivier</span></div>
+          <div class="seat"><span class="dot">15</span><span class="stem"></span><span class="label">Shaïsta</span></div>
+          <div class="seat"><span class="dot">16</span><span class="stem"></span><span class="label">Jodia</span></div>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Jeanne</span><span class="stem"></span><span class="dot">17</span></div>
+          <div class="seat"><span class="label">Florian</span><span class="stem"></span><span class="dot">18</span></div>
+          <div class="seat"><span class="label">Sophie</span><span class="stem"></span><span class="dot">19</span></div>
+          <div class="seat"><span class="label">Cédric</span><span class="stem"></span><span class="dot">20</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 3</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">21</span><span class="stem"></span><span class="label">Adrien</span></div>
+          <div class="seat"><span class="dot">22</span><span class="stem"></span><span class="label">Florent</span></div>
+          <div class="seat"><span class="dot">23</span><span class="stem"></span><span class="label">Claire</span></div>
+          <div class="seat"><span class="dot">24</span><span class="stem"></span><span class="label">Rémi</span></div>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Baptiste</span><span class="stem"></span><span class="dot">25</span></div>
+          <div class="seat"><span class="label">Virginie</span><span class="stem"></span><span class="dot">26</span></div>
+          <div class="seat"><span class="label">Nicolas P.</span><span class="stem"></span><span class="dot">27</span></div>
+          <div class="seat"><span class="label">Kevin</span><span class="stem"></span><span class="dot">28</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 4</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">29</span><span class="stem"></span><span class="label">Camille</span></div>
+          <div class="seat"><span class="dot">30</span><span class="stem"></span><span class="label">Caroline</span></div>
+          <div class="seat"><span class="dot">31</span><span class="stem"></span><span class="label">Loïc</span></div>
+          <div class="seat"><span class="dot">32</span><span class="stem"></span><span class="label">Mégane</span></div>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div class="row top">
+          <div class="seat"><span class="label">Jozua</span><span class="stem"></span><span class="dot">33</span></div>
+          <div class="seat"><span class="label">Pierre P.</span><span class="stem"></span><span class="dot">34</span></div>
+          <div class="seat"><span class="label">Léo</span><span class="stem"></span><span class="dot">35</span></div>
+        </div>
+        <div class="surface"><span class="table-tag">Table 5</span></div>
+        <div class="row bottom">
+          <div class="seat"><span class="dot">36</span><span class="stem"></span><span class="label">Océane</span></div>
+          <div class="seat"><span class="dot">37</span><span class="stem"></span><span class="label">Laura</span></div>
+          <div class="seat"><span class="dot">38</span><span class="stem"></span><span class="label">Manon C.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>Grande table II — 38 convives</footer>
+</div>
+
+</body>
+</html>
