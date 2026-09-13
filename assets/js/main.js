@@ -8,6 +8,7 @@ const LINKS = {
   directions: "index.html#directions",
   info: "index.html",
   hebergement: "accommodations.html",
+  table: "table_plan.html",
 };
 
 document.querySelectorAll("[data-link]").forEach(function (el) {
