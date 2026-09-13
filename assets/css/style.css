@@ -781,7 +781,6 @@ h3 {
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   box-shadow: var(--shadow);
-  overflow-x: auto;
 }
 
 .table-plan-head {
@@ -802,83 +801,77 @@ h3 {
   letter-spacing: 0.2em;
 }
 
-.banquet {
+.gtable {
   display: flex;
-  width: 100%;
-  min-width: max-content;
+  flex-direction: column;
 }
 
 .segment {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  position: relative;
-  min-width: 0;
 }
 
-.segment:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: repeating-linear-gradient(to bottom, var(--gold) 0 3px, transparent 3px 6px);
-}
-
-.row {
+.seg-body {
   display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  min-height: 8.5rem;
-  padding: 0.35rem 0;
+  align-items: stretch;
 }
 
-.row.bottom {
+.col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.col.top {
+  align-items: flex-end;
+}
+
+.col.bot {
   align-items: flex-start;
 }
 
 .seat {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 1.4rem;
-  flex-shrink: 0;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.col.top .seat {
+  flex-direction: row;
+}
+
+.col.bot .seat {
+  flex-direction: row-reverse;
 }
 
 .seat .label {
-  writing-mode: vertical-rl;
-  font-size: 0.66rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  line-height: 1.15;
   color: var(--ink);
   white-space: nowrap;
-  max-height: 7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
-.row .stem {
-  width: 1.5px;
-  height: 0.55rem;
+.col .stem {
+  width: 0.55rem;
+  height: 1.5px;
   background: var(--gold);
   flex-shrink: 0;
 }
 
-.row.top .label { order: 1; }
-.row.top .stem { order: 2; }
-.row.top .dot { order: 3; }
-
-.row.bottom .dot { order: 1; }
-.row.bottom .stem { order: 2; }
-.row.bottom .label { order: 3; }
-
 .dot {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.35rem;
+  height: 1.35rem;
   border-radius: 50%;
   background: var(--sage-dark);
   color: var(--white);
   font-family: var(--font-serif);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -887,46 +880,35 @@ h3 {
 }
 
 .surface {
-  height: 1.9rem;
+  width: 2rem;
   background: var(--sage-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
-.segment:first-child .surface { border-radius: 10px 0 0 10px; }
-.segment:last-child .surface { border-radius: 0 10px 10px 0; }
-.banquet .segment:only-child .surface { border-radius: 10px; }
+.gtable .segment:first-child .surface {
+  border-radius: 10px 10px 0 0;
+}
 
-.table-tag {
+.gtable .segment:last-child .surface {
+  border-radius: 0 0 10px 10px;
+}
+
+.surface .table-tag {
   font-family: var(--font-serif);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
   color: var(--white);
   opacity: 0.95;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
   .tables {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .seat {
-    width: 1.15rem;
-  }
-
-  .seat .label {
-    font-size: 0.6rem;
-    max-height: 6.5rem;
-  }
-
-  .dot {
-    width: 1.1rem;
-    height: 1.1rem;
-    font-size: 0.6rem;
   }
 }
 
@@ -942,27 +924,54 @@ h3 {
   }
 
   .tables {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .banquet {
-    min-width: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
   }
 
   .table-plan {
     box-shadow: none;
     border: 1px solid var(--cream-dark);
-    overflow: visible;
+    padding: 1rem;
     break-inside: avoid;
   }
 
-  .table-plan + .table-plan {
-    break-before: page;
+  .table-plan-head {
+    margin-bottom: 0.75rem;
+  }
+
+  .table-plan-head h3 {
+    font-size: 1.4rem;
+  }
+
+  .seat {
+    gap: 0.35rem;
+  }
+
+  .seat .label {
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
+  .col .stem {
+    width: 0.4rem;
+  }
+
+  .dot {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.55rem;
+  }
+
+  .surface {
+    width: 1.5rem;
+  }
+
+  .surface .table-tag {
+    font-size: 0.6rem;
   }
 
   @page {
     size: A4 landscape;
-    margin: 10mm;
+    margin: 8mm;
   }
 }
